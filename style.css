@@ -1,0 +1,76 @@
+:root {
+  --progress: 0;
+  --bg: #0e0e11;
+  --fg: #f5f5f5;
+  --accent: #ff4d4d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+}
+
+.spacer {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.clarity {
+  height: 400vh;
+  position: relative;
+}
+
+.progress {
+  position: sticky;
+  top: 0;
+  height: 3px;
+  background: rgba(255,255,255,0.1);
+}
+
+.progress span {
+  display: block;
+  height: 100%;
+  width: 100%;
+  background: var(--accent);
+  transform-origin: left;
+  transform: scaleX(var(--progress));
+}
+
+.clarity-inner {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  padding: 20vh 10vw;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.title span,
+.step span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.title span.show,
+.step span.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.title {
+  font-size: 3rem;
+}
+
+.step {
+  font-size: 1.5rem;
+}
